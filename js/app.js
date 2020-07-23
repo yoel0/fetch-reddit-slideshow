@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const requestURL = "https://www.reddit.com/search.json?q=aotp";
+  const requestURL = "https://www.reddit.com/search.json?q=rubix";
 
   fetch(requestURL)
     .then(function (responseData) {
@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/// make button function
-/// style my css
-/// figure out to display one image
+// picture hide and fade-out
+// make input field searchable
+// make button function go and stop
+// style my css
+// figure out to display one image at a time

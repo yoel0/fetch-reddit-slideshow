@@ -5,7 +5,45 @@
 }
 
 body {
+  background: #333;
+  color: whitesmoke;
+}
+
+.welcome-plug {
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
+}
+
+.para-plug {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 25px;
+}
+
+.input-plug {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 25px;
+}
+
+.image-plug {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 25px;
+}
+
+.button-plug {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 25px;
 }
