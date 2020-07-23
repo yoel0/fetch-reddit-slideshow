@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const requestURL = "https://www.reddit.com/search.json?q=cowboy_bebop";
+  const requestURL = "https://www.reddit.com/search.json?q=aotp";
 
   fetch(requestURL)
     .then(function (responseData) {
