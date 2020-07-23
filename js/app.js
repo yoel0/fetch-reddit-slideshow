@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetch(requestURL)
     .then(function (responseData) {
+      if (responseData.status === 200) return responseData.json();
       console.log(responseData);
-      return responseData.json();
     })
     .then(function (jsonData) {
       console.log(jsonData);
@@ -12,10 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
       let results = jsonData.data.children;
       let infoNeeded = results.map(function (imageResults) {
         let image = imageResults.data.thumbnail;
-        if (image.includes("http")) {
-          return image;
-        }
+        return image;
       });
+
       const imageShow = document.getElementById("painindass");
       infoNeeded.forEach((image) => {
         let imageDaddy = document.createElement("img");
