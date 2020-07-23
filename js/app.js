@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// picture hide and fade-out
+// picture hide / rotate
 // make input field searchable
 // make button function go and stop
-// style my css
-// figure out to display one image at a time
