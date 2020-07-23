@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return image;
         }
       });
-      const imageShow = document.getElementById("pain");
+      const imageShow = document.getElementById("painindass");
       infoNeeded.forEach((image) => {
         let imageDaddy = document.createElement("img");
         imageDaddy.src = `${image}`;
