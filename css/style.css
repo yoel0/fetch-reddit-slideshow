@@ -1,49 +1,111 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  background: #333;
-  color: whitesmoke;
+  background: #282828; /* match border color */
+  text-align: center;
 }
 
-.welcome-plug {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+/* will toggle this using DOM manipulation*/
+#slideshow {
+  display: none;
 }
 
-.para-plug {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 25px;
+.bruh {
+  font: 84px "Arial Narrow", sans-serif;
+  color: red;
+  text-transform: uppercase;
+  letter-spacing: -4px;
 }
 
-.input-plug {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 25px;
+.bruh span {
+  position: relative;
 }
 
-.image-plug {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 25px;
+/* manipulating both h1 words */
+.bruh span:before,
+.bruh span:after {
+  content: "";
+  position: absolute;
+  border-width: 32px;
+  border-style: solid;
+  border-color: transparent;
+  height: 0;
+  z-index: 10;
 }
 
-.button-plug {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 25px;
+/* first word manipulation */
+.bruh .word-uno {
+  color: #fefefe;
+  margin-right: -38px;
+  transform: rotateY(180deg); /* using Prefix free */
+  display: inline-block; /* required for transform */
+  z-index: 10; /* stack 1st word on top */
+}
+.bruh .word-uno:before {
+  right: -4px; /* would be left, but flipped the word */
+  top: -9px;
+  border-top-color: #282828; /* match background color */
+  border-right-color: #282828; /* would be left, but flipped the word */
+}
+.bruh .word-uno:after {
+  left: 17px; /* would be right, but flipped the word */
+  bottom: -15px;
+  border-bottom-color: #282828;
+  border-left-color: #282828; /* would be right, but flipped the word */
+}
+
+/* second word manipulation */
+.bruh .word-dos {
+  z-index: 0; /* stack 2nd word below */
+}
+.bruh .word-dos:before {
+  left: -4px;
+  top: -6px;
+  border-top-color: #282828;
+  border-left-color: #282828;
+}
+.bruh .word-dos:after {
+  right: -4px;
+  bottom: 4px;
+  border-bottom-color: #282828;
+  border-right-color: #282828;
+}
+
+p {
+  font-family: "Arial Narrow", sans-serif;
+  color: #fefefe;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
+button {
+  border: none;
+  background: red;
+  color: #fefefe;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 500ms ease;
+}
+
+button:hover {
+  animation: bounce 1s;
 }
