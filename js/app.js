@@ -6,18 +6,19 @@ let resultsArray = [];
 let currIndex = 0;
 let resetButton;
 
-const changePhoto = () => {
-  if (resultsArray[currIndex + 1].data.thumbnail) {
+const changePhoto = (resultsArray) => {
+  console.log(currIndex);
+  if (resultsArray[currIndex] && resultsArray[currIndex].data.thumbnail) {
     currIndex++;
-  } else {
+  } else if (currIndex === resultsArray.length) {
     currIndex = 0;
   }
-  slideshow.setAttribute("src", resultsArray[currIndex].data.thumbnail);
+  slidesImage.setAttribute("src", resultsArray[currIndex].data.thumbnail);
 };
-const startSlideshow = () => {
+const startSlideshow = (resultsArray) => {
   console.log("starting slideshow");
   // start changing image every 3 seconds
-  setInterval(changePhoto, 3000);
+  setInterval(() => changePhoto(resultsArray), 1000);
 };
 const getSearchResults = () => {
   // fetch from the reddit API
@@ -26,9 +27,16 @@ const getSearchResults = () => {
       return response.json();
     })
     .then((jsonData) => {
-      resultsArray = jsonData.data.children;
-      slideshow.setAttribute("src", resultsArray[0].data.thumbnail);
-      startSlideshow();
+      resultsArray = jsonData.data.children.filter((obj) => {
+        return (
+          obj &&
+          (obj.data.thumbnail.includes(".jpg") ||
+            obj.data.thumbnail.includes(".png"))
+        );
+      });
+      console.log(resultsArray);
+      slidesImage.setAttribute("src", resultsArray[0].data.thumbnail);
+      startSlideshow(resultsArray);
     })
     .catch((err) => {
       console.log("there was an error fetching the results");
@@ -36,6 +44,7 @@ const getSearchResults = () => {
     });
 };
 document.addEventListener("DOMContentLoaded", () => {
+  slidesImage = document.getElementById("slides");
   slideshow = document.getElementById("slideshow");
   searchForm = document.querySelector("form");
   input = document.querySelector("input");
